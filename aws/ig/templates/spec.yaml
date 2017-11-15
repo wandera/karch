@@ -25,3 +25,5 @@ ${additional-sgs}
 ${taints}
   subnets:
 ${subnets}
+  additionalUserData:
+${additional-user-data}

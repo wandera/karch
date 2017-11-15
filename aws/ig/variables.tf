@@ -143,3 +143,10 @@ variable "node-labels" {
 
   default = {}
 }
+
+variable "additional-user-data" {
+  type        = "string"
+  description = "Additionnal user data (i.e. cloud-configs) to provide to the instances"
+
+  default = ""
+}

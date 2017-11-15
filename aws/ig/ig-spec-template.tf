@@ -25,6 +25,7 @@ EOF
     max-price               = "maxPrice: '${var.max-price}'"
     taints                  = "${join("\n", data.template_file.taints.*.rendered)}"
     subnets                 = "${join("\n", data.template_file.subnets.*.rendered)}"
+    additional-user-data    = "${var.additional-user-data}"
   }
 }
 
