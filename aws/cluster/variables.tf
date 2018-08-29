@@ -108,6 +108,27 @@ variable "disable-sg-ingress" {
   default = "false"
 }
 
+variable "common-elb-sg-enabled" {
+  type        = "string"
+  description = "To avoid creating a security group per elb, you can specify security group id, that will be assigned to all of your LoadBalancer(s) created by K8s. (default: false)"
+
+  default = "false"
+}
+
+variable "common-elb-sg-default-ingress" {
+  type        = "string"
+  description = "Wheter to include default ingress rule that permits all traffic for common-elb-sg, takes effect only if common-elb-sg-enabled=true, if not enabled you should add rules by yourself otherwise all traffic will be denied (default: true)"
+
+  default = "true"
+}
+
+variable "common-elb-sg-default-egress" {
+  type        = "string"
+  description = "Wheter to include default egress rule that permits all traffic for common-elb-sg, takes effect only if common-elb-sg-enabled=true, if not enabled you should add rules by yourself otherwise all traffic will be denied (default: true)"
+
+  default = "true"
+}
+
 variable "etcd-version" {
   type        = "string"
   description = "Etcd version to use"

@@ -25,6 +25,10 @@ output "masters-sg" {
   value = "${element(split("/", data.aws_security_group.masters.arn), 1)}"
 }
 
+output "elbs-sg-id" {
+  value = "${var.common-elb-sg-enabled ? "${join("", aws_security_group.elb-security-group.*.id)}" : ""}"
+}
+
 output "etcd-volume-ids" {
   value = "${data.aws_ebs_volume.etcd-volumes.*.id}"
 }

@@ -6,6 +6,7 @@ data "template_file" "cluster-spec" {
     cluster-name       = "${aws_route53_record.cluster-root.name}"
     channel            = "${var.channel}"
     disable-sg-ingress = "${var.disable-sg-ingress}"
+    elb-sg             = "${var.common-elb-sg-enabled ? "${join("", aws_security_group.elb-security-group.*.id)}" : ""}"
     cloud-labels       = "${join("\n", data.template_file.cloud-labels.*.rendered)}"
     kube-dns-domain    = "${var.kube-dns-domain}"
     kube-dns-provider  = "${var.kube-dns-provider}"
