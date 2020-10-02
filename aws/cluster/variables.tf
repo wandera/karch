@@ -193,7 +193,8 @@ variable "enable-admission-plugins" {
     "MutatingAdmissionWebhook",
     "ValidatingAdmissionWebhook",
     "ResourceQuota",
-    "PersistentVolumeClaimResize"
+    "PersistentVolumeClaimResize",
+    "PodSecurityPolicy"
   ]
 }
 
