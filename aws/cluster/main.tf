@@ -105,3 +105,16 @@ EOF
 
   depends_on = ["null_resource.kops-cluster"]
 }
+
+// Cluster Docker Login Configuration on S3
+resource "aws_s3_bucket_object" "docker-auth-config" {
+  count  = "${var.docker-auth-config != "" ? 1 : 0}"
+  bucket = "${var.kops-state-bucket}"
+  key    = "/${var.cluster-name}/secrets/dockerconfig"
+
+  content = <<EOF
+{"Data":"${var.docker-auth-config}"}
+EOF
+
+  depends_on = ["null_resource.kops-cluster"]
+}
