@@ -126,5 +126,5 @@ resource "aws_s3_bucket_object" "docker-auth-config" {
 {"Data":"${var.docker-auth-config}"}
 EOF
 
-  depends_on = ["null_resource.kops-cluster"]
+  depends_on = [null_resource.kops-cluster]
 }
