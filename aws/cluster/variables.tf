@@ -78,15 +78,15 @@ variable "kube-dns" {
 # kube-proxy
 variable "kube-proxy" {
   type = object({
-    enabled = bool
-    clusterCIDR = string
-    cpuRequest = string
+    enabled          = bool
+    clusterCIDR      = string
+    cpuRequest       = string
     hostnameOverride = string
   })
   default = {
-    enabled = false
-    clusterCIDR = "100.96.0.0/11"
-    cpuRequest = "100m"
+    enabled          = false
+    clusterCIDR      = "100.96.0.0/11"
+    cpuRequest       = "100m"
     hostnameOverride = "@aws"
   }
 }
