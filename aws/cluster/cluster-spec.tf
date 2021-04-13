@@ -106,7 +106,7 @@ locals {
         clusterCIDR      = "100.96.0.0/11"
         cpuRequest       = "100m"
         hostnameOverride = "@aws"
-        image            = "gcr.io/google_containers/kube-proxy:${var.kubernetes-version}" # From upstream
+        image            = "gcr.io/google_containers/kube-proxy:v${var.kubernetes-version}" # From upstream
         logLevel         = var.log-level
       }
       kubeScheduler = {
