@@ -76,19 +76,22 @@ variable "kube-dns" {
 }
 
 # kube-proxy
-variable "kube-proxy" {
+variable "kube-proxy-params" {
   type = object({
-    enabled          = bool
     clusterCIDR      = string
     cpuRequest       = string
     hostnameOverride = string
   })
   default = {
-    enabled          = false
     clusterCIDR      = "100.96.0.0/11"
     cpuRequest       = "100m"
     hostnameOverride = "@aws"
   }
+}
+
+variable "kube-proxy-enabled" {
+  type = bool
+  default = false
 }
 
 # https://kops.sigs.k8s.io/addons/#node-local-dns-cache

@@ -103,10 +103,10 @@ locals {
         }
       }
       kubeProxy = {
-        enabled          = var.kube-proxy.enabled
-        clusterCIDR      = var.kube-proxy.clusterCIDR
-        cpuRequest       = var.kube-proxy.cpuRequest
-        hostnameOverride = var.kube-proxy.hostnameOverride
+        enabled          = var.kube-proxy-enabled
+        clusterCIDR      = var.kube-proxy-params.clusterCIDR
+        cpuRequest       = var.kube-proxy-params.cpuRequest
+        hostnameOverride = var.kube-proxy-params.hostnameOverride
         image            = "gcr.io/google_containers/kube-proxy:v${var.kubernetes-version}" # From upstream
         logLevel         = var.log-level
       }
